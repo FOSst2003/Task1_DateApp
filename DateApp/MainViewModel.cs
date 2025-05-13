@@ -25,6 +25,11 @@ namespace DateApp
             get => _dayInput;
             set
             {
+                if (value < 1 || value > 31)
+                {
+                    MessageBox.Show("Day must be between 1 and 31.");
+                    return;
+                }
                 _dayInput = value;
                 OnPropertyChanged();
             }
@@ -35,6 +40,11 @@ namespace DateApp
             get => _monthInput;
             set
             {
+                if (value < 1 || value > 12)
+                {
+                    MessageBox.Show("Month must be between 1 and 12.");
+                    return;
+                }
                 _monthInput = value;
                 OnPropertyChanged();
             }
@@ -45,6 +55,11 @@ namespace DateApp
             get => _yearInput;
             set
             {
+                if (value < 1 || value > 9999)
+                {
+                    MessageBox.Show("Year must be between 1 and 9999.");
+                    return;
+                }
                 _yearInput = value;
                 OnPropertyChanged();
             }
@@ -87,7 +102,15 @@ namespace DateApp
 
         public MainViewModel()
         {
-            _currentDate = new Date(DayInput, MonthInput, YearInput);
+            try
+            {
+                _currentDate = new Date(DayInput, MonthInput, YearInput);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Invalid date entered.");
+            }
+
             SetDateCommand = new RelayCommand(OnSetDate);
             AddDaysCommand = new RelayCommand(OnAddDays);
             AddMonthsCommand = new RelayCommand(OnAddMonths);

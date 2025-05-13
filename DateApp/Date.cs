@@ -29,7 +29,13 @@ namespace DateApp
 
         public static bool IsValid(int year, int month, int day)
         {
-            if (year < 1 || month < 1 || month > 12 || day < 1)
+            if (year < 1 || year > 9999)
+                return false;
+
+            if (month < 1 || month > 12)
+                return false;
+
+            if (day < 1)
                 return false;
 
             int daysInMonth = GetDaysInMonth(month, year);
