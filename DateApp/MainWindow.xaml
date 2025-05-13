@@ -1,0 +1,45 @@
+﻿<Window x:Class="DateApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Date Application" Height="450" Width="500">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Set Date:" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox Text="{Binding DayInput, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="0,0,5,0"/>
+                <TextBox Text="{Binding MonthInput, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="0,0,5,0"/>
+                <TextBox Text="{Binding YearInput, UpdateSourceTrigger=PropertyChanged}" Width="70"/>
+            </StackPanel>
+
+            <Button Content="Set Date" Command="{Binding SetDateCommand}" Width="100" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Current Date:" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+
+            <TextBlock Text="{Binding CurrentDay, StringFormat=Day: {0}}" Margin="0,0,0,5"/>
+            <TextBlock Text="{Binding CurrentMonth, StringFormat=Month: {0}}"/>
+            <TextBlock Text="{Binding CurrentYear, StringFormat=Year: {0}}"/>
+            <TextBlock Text="{Binding CurrentDayOfWeek, StringFormat=Day of Week: {0}}" Margin="0,5,0,20"/>
+
+            <TextBlock Text="Add Days/Months/Years:" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox Text="{Binding DaysToAdd, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="0,0,5,0"/>
+                <Button Content="Add Days" Command="{Binding AddDaysCommand}" Width="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox Text="{Binding MonthsToAdd, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="0,0,5,0"/>
+                <Button Content="Add Months" Command="{Binding AddMonthsCommand}" Width="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding YearsToAdd, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="0,0,5,0"/>
+                <Button Content="Add Years" Command="{Binding AddYearsCommand}" Width="100"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

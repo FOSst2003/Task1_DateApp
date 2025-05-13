@@ -1,0 +1,23 @@
+# Visual Studio temporary files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# NuGet packages
+packages/
+
+# Resharper
+*.ReSharper
+_ReSharper*/
+
+# Windows thumbnails
+Thumbs.db
+
+# Windows desktop.ini
+desktop.ini
